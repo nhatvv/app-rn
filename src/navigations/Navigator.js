@@ -3,6 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { createStackNavigator } from '@react-navigation/stack'
 import {Image} from 'react-native'
 import { HomeScreen, MenuScreen } from '../screens';
+// import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const Tab = createBottomTabNavigator();
 const BottomTabNavigator = () => {
@@ -29,11 +30,15 @@ const BottomTabNavigator = () => {
                 options={{
                     tabBarLabel:"Cá nhân",
                     tabBarIcon:({color, size}) => (
-                        <MaterialCommunityIcons
-                        name="home-outline"
-                        color={color}
-                        size={size}
-            />
+                        // <MaterialCommunityIcons
+                        // name="home-outline"
+                        // color={color}
+                        // size={size}
+                        //      />
+                        <Image
+                            source={require("../images/8.png")}
+                            style={{ height:20, width:20 }}
+                        />
                     )
                 }}
             />
