@@ -7,7 +7,7 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/Spinner-1s-200pxLoading.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },

@@ -1,20 +1,69 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import 'react-native-gesture-handler';
+import React, { useEffect, useState } from 'react'
+import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
+import { LoginScreen, HomeScreen, RegistrationScreen, MenuScreen, MoneyIntoWallet } from './src/screens'
+import {decode, encode} from 'base-64'
+import { firebase } from './src/firebase/config';
+import Navigator from './src/navigations/Navigator';
+if (!global.btoa) {  global.btoa = encode }
+if (!global.atob) { global.atob = decode }
+
+const Stack = createStackNavigator();
 
 export default function App() {
+
+  const [loading, setLoading] = useState(true)
+  const [user, setUser] = useState(null)
+
+  useEffect(() => {
+    const usersRef = firebase.firestore().collection('users');
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        usersRef
+          .doc(user.uid)
+          .get()
+          .then((document) => {
+            const userData = document.data()
+            setLoading(false)
+            setUser(userData)
+          })
+          .catch((error) => {
+            setLoading(false)
+          });
+      } else {
+        setLoading(false)
+      }
+    });
+  }, []);
+
+  if (loading) {
+    return (
+      <></>
+    )
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        {/* { user ? (
+          
+          <Stack.Screen name="Navigator">
+            {props => <Navigator {...props} extraData={user} />}
+          </Stack.Screen>
+          
+          
+        ) : (
+          <> */}
+            {/* <Stack.Screen name="Login" component={LoginScreen} />
+            <Stack.Screen name="Registration" component={RegistrationScreen} /> */}
+            <Stack.Screen name="Navigator" component={Navigator} />
+            <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="MenuScreen" component={MenuScreen} />
+            <Stack.Screen name="MoneyIntoWallet" component={MoneyIntoWallet} />
+          {/* </> */}
+        {/* )} */}
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
