@@ -3,42 +3,42 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { createStackNavigator } from '@react-navigation/stack'
 import {Image} from 'react-native'
 import { HomeScreen, MenuScreen } from '../screens';
-// import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import {AntDesign } from '@expo/vector-icons';
 
 const Tab = createBottomTabNavigator();
-const BottomTabNavigator = () => {
+const BottomTabNavigator = (props) => {
+    console.log("props tab",props);
     return(
         <Tab.Navigator
             screenOptions={{ headerShown: false }}
         >
             <Tab.Screen
                 name="Home"
-                component={HomeScreen}
+                component={HomeScreen} initialParams={{ fullName: props.route.params.fullName }}
                 options={{
                     tabBarLabel:"Home",
                     tabBarIcon:({color, size}) => (
-                        <Image
-                            source={require("../images/8.png")}
-                            style={{ height:20, width:20 }}
-                        />
+                        <AntDesign  name="home"
+                        color={color}
+                        size={size} />
                     )
                 }}
             />
              <Tab.Screen
                 name="Menu"
-                component={MenuScreen}
+                component={MenuScreen} initialParams={{ fullName: props.route.params.fullName, age: props.route.params.age , sex: props.route.params.sex}}
                 options={{
-                    tabBarLabel:"Cá nhân",
+                    tabBarLabel:"Quản lý",
                     tabBarIcon:({color, size}) => (
-                        // <MaterialCommunityIcons
-                        // name="home-outline"
-                        // color={color}
-                        // size={size}
-                        //      />
-                        <Image
-                            source={require("../images/8.png")}
-                            style={{ height:20, width:20 }}
-                        />
+                        <AntDesign  name="menufold"
+                        color={color}
+                        size={size} />
+                
+                    
+                        // <Image
+                        //     source={require("../images/8.png")}
+                        //     style={{ height:20, width:20 }}
+                        // />
                     )
                 }}
             />
@@ -54,14 +54,18 @@ const screenOptionStyle = {
 }
 
 const Navigator = (props) => {
-    const extraData = props.extraData
+    const fullName = props.extraData.fullName
+    const sex = props.extraData.sex
+    const age = props.extraData.age
+    console.log("props navi",props);
     return(
         <Stack.Navigator screenOptions={screenOptionStyle}>
            {/* <Stack.Screen name="Home">
             {props => <HomeScreen  {...props}component={BottomTabNavigator}/>}
           </Stack.Screen> */}
           {/* extraData={extraData}  */}
-          <Stack.Screen name='Home' component={BottomTabNavigator}/>
+          <Stack.Screen name='HomeMain' component={BottomTabNavigator} initialParams={{ fullName: fullName, sex: sex, age: age }}/>
+    
         </Stack.Navigator>
     )
 }

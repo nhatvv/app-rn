@@ -7,22 +7,19 @@ import {
   TouchableOpacity
 } from 'react-native';
 import { firebase } from '../../firebase/config'
+import {AntDesign } from '@expo/vector-icons';
 
-  export default function MenuScreen(props) {
+  export default function ProfileScreen(props) {
 
-      console.log("props menu",props);
-      const fullName = props.route.params.fullName
-      const age = props.route.params.age
-      const sex = props.route.params.sex
+      console.log("props profile",props);
+    //   const fullName = props.route.params.fullName
+    //   const age = props.route.params.age
+    //   const sex = props.route.params.sex
 
-    const signOut = () => {
-      firebase.auth().signOut().then(function() {
-          console.log('Signed Out');
-        }, function(error) {
-          console.error('Sign Out Error', error);
-        });
-        
-  };
+    const goBack = () => {
+        props.navigation.goBack();
+        console.log("props note",props);
+    }
     
     const  functionCombined = () => {
         signOut();
@@ -30,8 +27,14 @@ import { firebase } from '../../firebase/config'
     }  
     return (
       <View style={styles.container}>
+        <TouchableOpacity onPress={ () => goBack()}>
+
+            <View style={{ height:40, width:40, marginLeft: 10,marginTop: 50}}>
+                        <AntDesign size={23} name='left'/>
+            </View>
+        </TouchableOpacity>
           <View style={styles.header}>
-          <TouchableOpacity onPress={() => props.navigation.navigate('Home')}>
+          {/* <TouchableOpacity onPress={() => props.navigation.navigate('Navigator',{ props: props})}>
          
           <View style={{
                    flexDirection:"row",
@@ -51,33 +54,33 @@ import { firebase } from '../../firebase/config'
                    <View style={{width:"50%",alignItems:"flex-end"}}>
                    </View>
                </View>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
      
           </View>
           
           <Image style={styles.avatar} source={require("../../../assets/Spinner-1s-200pxLoading.png")}/>
           <View style={{ alignItems: 'center', marginTop: -10 }}>
-            <Text style={styles.name}>{fullName}</Text>  
-            <Text style={{ alignItems: 'center', marginTop: 10 }}>{sex}, {age} tuổi</Text> 
+            <Text style={styles.name}>{}</Text>  
+            {/* <Text style={{ alignItems: 'center', marginTop: 10 }}>{} {} </Text>  */}
           </View>
          
           <View style={styles.body}>
             <View style={styles.bodyContent}>
-              <TouchableOpacity style={styles.buttonContainer} onPress={() => props.navigation.navigate('ProfileScreen')}>
-                <Text>Thông tin cá nhân</Text>  
+              <TouchableOpacity style={styles.buttonContainer} >
+                <Text>     Họ tên                :             {props.extraData.fullName}</Text>  
               </TouchableOpacity>   
-              <TouchableOpacity style={styles.buttonContainer} onPress={() => props.navigation.navigate('MoneyIntoWallet')}>
-                <Text>Ví tiền</Text> 
+              <TouchableOpacity style={styles.buttonContainer} >
+                <Text>     Tuổi                    :              {props.extraData.age}</Text> 
               </TouchableOpacity>     
               <TouchableOpacity style={styles.buttonContainer}>
-                <Text>Bảo mật</Text> 
+                <Text>     Giới tính             :              {props.extraData.sex}</Text> 
               </TouchableOpacity>      
               <TouchableOpacity style={styles.buttonContainer}>
-                <Text>Cài đặt</Text> 
+                <Text>     Email                 : {props.extraData.email}</Text> 
               </TouchableOpacity>
-              <TouchableOpacity style={styles.buttonLogout} onPress={() => functionCombined()}>
-                <Text>Đăng xuất</Text> 
-              </TouchableOpacity>
+              {/* <TouchableOpacity style={styles.buttonLogout} >
+                <Text> {props.extraData.age}</Text> 
+              </TouchableOpacity> */}
             </View>
         </View>
       </View>
@@ -136,7 +139,7 @@ const styles = StyleSheet.create({
     marginTop:10,
     height:45,
     flexDirection: 'row',
-    justifyContent: 'center',
+    // justifyContent: 'center',
     alignItems: 'center',
     marginBottom:10,
     width:250,
@@ -144,7 +147,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     shadowColor: "#000",
     elevation: 15,
-    elevation: 15,
+
   },
   buttonLogout: {
     marginTop:20,

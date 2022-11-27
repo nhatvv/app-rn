@@ -3,31 +3,17 @@ import { FlatList, Keyboard, Text, TextInput, TouchableOpacity, View } from 'rea
 import styles from './styles';
 import { firebase } from '../../firebase/config'
 import { useNavigation } from '@react-navigation/native';
+import {AntDesign } from '@expo/vector-icons';
+import { LinearGradient } from 'expo-linear-gradient'
 
-export default function HomeScreen() {
+export default function NoteDetail(props ) {
 
     const [entityText, setEntityText] = useState('')
     const [entities, setEntities] = useState([])
 
     const entityRef = firebase.firestore().collection('entities')
-    // const userID = props.extraData.id
-    const userID = "aadas"
-    const signOut = () => {
-        firebase.auth().signOut().then(function() {
-            console.log('Signed Out');
-          }, function(error) {
-            console.error('Sign Out Error', error);
-          });
-          
-    };
-    const logout = () => {
-        try {
-           firebase.auth().signOut();
-        } catch (e) {
-          console.log(e);
-        }
-    }
-
+    const userID = props.extraData.id
+   
     useEffect(() => {
         entityRef
             .where("authorID", "==", userID)
@@ -78,12 +64,34 @@ export default function HomeScreen() {
         )
     }
 
+    const goBack = () => {
+        props.navigation.goBack();
+        console.log("props note",props);
+    }
+
     return (
+        
         <View style={styles.container}>
+            <LinearGradient
+            colors={["transparent","#385898"]}
+            style={styles.container}
+           >
+            
+        
+            <TouchableOpacity onPress={ () => goBack()}>
+
+            <View style={{ height:40, width:40, marginRight: 350,marginTop: 40}}>
+                        <AntDesign size={23} name='left'/>
+            </View>
+            </TouchableOpacity>
+            <Text style={{fontWeight: '600', fontSize: 25, color: '#2e2e2d'}}>
+                Utility Ghi chú 
+            </Text>
+            
             <View style={styles.formContainer}>
                 <TextInput
                     style={styles.input}
-                    placeholder='Add new entity'
+                    placeholder='Thêm ghi chú'
                     placeholderTextColor="#aaaaaa"
                     onChangeText={(text) => setEntityText(text)}
                     value={entityText}
@@ -91,7 +99,7 @@ export default function HomeScreen() {
                     autoCapitalize="none"
                 />
                 <TouchableOpacity style={styles.button} onPress={onAddButtonPress}>
-                    <Text style={styles.buttonText}>Add</Text>
+                    <Text style={styles.buttonText}>Tạo</Text>
                 </TouchableOpacity>
             </View>
             { entities && (
@@ -106,9 +114,7 @@ export default function HomeScreen() {
 
                 
             )}
-            <TouchableOpacity style={styles.button} onPress={() => logout()}>
-                    <Text style={styles.buttonText}>Đăng xuất</Text>
-            </TouchableOpacity>
+           </LinearGradient>
         </View>
     )
 }

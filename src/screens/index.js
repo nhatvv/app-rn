@@ -7,3 +7,7 @@ export { default as RegistrationScreen } from './RegistrationScreen/Registration
 export { default as MenuScreen } from './MenuScreen/MenuScreen'
 
 export { default as MoneyIntoWallet } from './MoneyIntoWallet/MoneyIntoWallet'
+
+export { default as NoteDetail } from './NoteDetail/NoteDetail'
+
+export { default as ProfileScreen } from './ProfileScreen/ProfileScreen'

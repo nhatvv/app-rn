@@ -69,7 +69,7 @@ export default function MoneyIntoWallet({navigation}) {
           transparent={false}
           visible={showModal}
           onRequestClose={() => {
-            console.log('Modal has been closed.');
+            console.log('dong');
           }}>
           {/*All views of Modal*/}
           {/*Animation can be slide, slide, none*/}

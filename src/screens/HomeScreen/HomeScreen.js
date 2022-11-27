@@ -1,10 +1,17 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import {View, Text, Image, ImageBackground} from 'react-native'
 import {TextInput,ScrollView,TouchableOpacity} from 'react-native-gesture-handler'
 import { LinearGradient } from 'expo-linear-gradient'
+import {AntDesign } from '@expo/vector-icons';
+import { firebase } from '../../firebase/config'
 
-const HomeScreen = ({navigation}) => {
-    return(
+export default function HomeScreen(props ) {
+
+
+     const fullName = props?.route.params.fullName
+
+    console.log("props Home",props);
+    return (
         <View style={{
             backgroundColor:"#ffff",
             flex:1
@@ -61,13 +68,12 @@ const HomeScreen = ({navigation}) => {
                         style={{
                             fontWeight:"bold",
                             fontSize:16,
-                            width:260
+                            width:"95%"
                         }}
                    />
-                   <Image
-                    source={require('../../images/3.png')}
-                    style={{height:20,width:20}}
-                   />
+                   <AntDesign  name="search1"
+                        color="#385898"
+                        size={20}  />
                </View>
             </LinearGradient>
 
@@ -83,11 +89,11 @@ const HomeScreen = ({navigation}) => {
                             fontWeight:"bold",
                             fontSize:17,
                             color:"#585a61"
-                        }}>Nổi bật</Text>
+                        }}>Dành riêng cho <Text style={{color: "#385898"}}>{fullName}</Text></Text>
                         <View style={{
                             height:3,
                             backgroundColor:"#385898",
-                            width:65,
+                            width:175,
                             marginTop:-1
                         }}>
 
@@ -132,7 +138,7 @@ const HomeScreen = ({navigation}) => {
                         }}
                     />
                     <TouchableOpacity 
-                        // onPress={()=>navigation.navigate("Detail")}
+                        onPress={()=>props.navigation.navigate("NoteDetail")}
                         style={{
                             height:250,
                             elevation:2,
@@ -145,7 +151,7 @@ const HomeScreen = ({navigation}) => {
                         }}
                     >
                         <Image
-                            source={require('../../images/4.png')}
+                            source={require('../../images/6.png')}
                         />
                         <View style={{
                             flexDirection:"row",
@@ -187,7 +193,7 @@ const HomeScreen = ({navigation}) => {
                         }}
                     >
                         <Image
-                            source={require('../../images/5.png')}
+                            source={require('../../images/6.png')}
                         />
                         <View style={{
                             flexDirection:"row",
@@ -259,4 +265,4 @@ const HomeScreen = ({navigation}) => {
         </View>
     )
 }
-export default HomeScreen;
+// export default HomeScreen;

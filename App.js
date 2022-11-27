@@ -2,7 +2,7 @@ import 'react-native-gesture-handler';
 import React, { useEffect, useState } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
-import { LoginScreen, HomeScreen, RegistrationScreen, MenuScreen, MoneyIntoWallet } from './src/screens'
+import { LoginScreen, HomeScreen, RegistrationScreen, MenuScreen, MoneyIntoWallet, NoteDetail, ProfileScreen } from './src/screens'
 import {decode, encode} from 'base-64'
 import { firebase } from './src/firebase/config';
 import Navigator from './src/navigations/Navigator';
@@ -24,9 +24,9 @@ export default function App() {
           .doc(user.uid)
           .get()
           .then((document) => {
-            const userData = document.data()
+            const extraData = document.data()
             setLoading(false)
-            setUser(userData)
+            setUser(extraData)
           })
           .catch((error) => {
             setLoading(false)
@@ -46,23 +46,68 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-        {/* { user ? (
-          
+      { user ? (
           <Stack.Screen name="Navigator">
-            {props => <Navigator {...props} extraData={user} />}
+            {props => 
+            <Navigator {...props} extraData={user} />
+            }
+          </Stack.Screen>
+
+           ) : (
+              <>   
+              </>
+            )}
+            { user ? (
+          <Stack.Screen name="Home">
+            {props => 
+            <HomeScreen {...props} extraData={user} />
+            }
+          </Stack.Screen>
+
+           ) : (
+              <>   
+              </>
+            )}
+            <Stack.Screen name="Login" component={LoginScreen} />
+            <Stack.Screen name="Registration" component={RegistrationScreen} />
+            {/* <Stack.Screen name="Navigator" component={Navigator} /> */}
+            
+            {/* <Stack.Screen name="Home" component={HomeScreen} /> */}
+            <Stack.Screen name="MoneyIntoWallet" component={MoneyIntoWallet} />
+            { user ? (
+          
+          <Stack.Screen name="ProfileScreen">
+            {props => <ProfileScreen {...props} extraData={user} />}
           </Stack.Screen>
           
+          ) : (
+            <>   
+            </>
+          )}
+           
+            { user ? (
+          <Stack.Screen name="MenuScreen">
+            
+            {dataMenu => 
+            <MenuScreen {...dataMenu} userMenu={user} />
+            }
+          </Stack.Screen>
+
+           ) : (
+              <>   
+              </>
+            )}
+
+            { user ? (
           
-        ) : (
-          <> */}
-            {/* <Stack.Screen name="Login" component={LoginScreen} />
-            <Stack.Screen name="Registration" component={RegistrationScreen} /> */}
-            <Stack.Screen name="Navigator" component={Navigator} />
-            <Stack.Screen name="Home" component={HomeScreen} />
-            <Stack.Screen name="MenuScreen" component={MenuScreen} />
-            <Stack.Screen name="MoneyIntoWallet" component={MoneyIntoWallet} />
-          {/* </> */}
-        {/* )} */}
+            <Stack.Screen name="NoteDetail">
+              {props => <NoteDetail {...props} extraData={user} />}
+            </Stack.Screen>
+            
+            ) : (
+              <>   
+              </>
+            )}
       </Stack.Navigator>
     </NavigationContainer>
   );

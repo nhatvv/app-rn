@@ -7,6 +7,8 @@ import { firebase } from '../../firebase/config'
 export default function RegistrationScreen({navigation}) {
     const [fullName, setFullName] = useState('')
     const [email, setEmail] = useState('')
+    const [sex, setSex] = useState('')
+    const [age, setAge] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
 
@@ -29,13 +31,15 @@ export default function RegistrationScreen({navigation}) {
                     id: uid,
                     email,
                     fullName,
+                    sex,
+                    age,
                 };
                 const usersRef = firebase.firestore().collection('users')
                 usersRef
                     .doc(uid)
                     .set(data)
                     .then(() => {
-                        navigation.navigate('Home', {user: data})
+                        navigation.navigate('Navigator', {user: data})
                     })
                     .catch((error) => {
                         alert(error)
@@ -70,6 +74,24 @@ export default function RegistrationScreen({navigation}) {
                     placeholderTextColor="#aaaaaa"
                     onChangeText={(text) => setEmail(text)}
                     value={email}
+                    underlineColorAndroid="transparent"
+                    autoCapitalize="none"
+                />
+                <TextInput
+                    style={styles.input}
+                    placeholder='Giới tính'
+                    placeholderTextColor="#aaaaaa"
+                    onChangeText={(text) => setSex(text)}
+                    value={sex}
+                    underlineColorAndroid="transparent"
+                    autoCapitalize="none"
+                />
+                <TextInput
+                    style={styles.input}
+                    placeholder='Tuổi'
+                    placeholderTextColor="#aaaaaa"
+                    onChangeText={(text) => setAge(text)}
+                    value={age}
                     underlineColorAndroid="transparent"
                     autoCapitalize="none"
                 />
