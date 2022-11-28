@@ -37,7 +37,7 @@ export default function MoneyIntoWallet({navigation}) {
                     </TouchableOpacity>
                     <View style= {{flexDirection: "row", paddingTop: 20, paddingBottom: 20}}>
                         <Text style ={{fontSize:18, fontWeight: '500', paddingRight: 20}}>Số dư ví</Text>
-                        <Text style ={{fontSize:15, paddingLeft: 190 }}>1000 NMC</Text>
+                        <Text style ={{fontSize:15, paddingLeft: 190 }}>1000 VVN</Text>
                     </View>
                 </View>
                 <View>
@@ -45,11 +45,11 @@ export default function MoneyIntoWallet({navigation}) {
                   style={{borderBottomWidth: 1, marginLeft:85,  width: '75%',borderBottomColor: 'black', fontSize: 24, fontWeight: '600', paddingBottom: 10}}></TextInput>
                   
                   <View style={{borderColor: '#EAEAEA', borderWidth: 1, width: 65, height:24 , paddingTop: 5, paddingLeft: 7, borderRadius: 15, bottom: 30}}>
-                      <Image  style={{height: 12, width: 22}} source={require("../../../assets/Spinner-1s-200pxLoading.png")}></Image>
+                      <Image  style={{height: 12, width: 22}} source={require("../../../src/images/viet_nam.png")}></Image>
                       <Text style={{fontWeight: '600', fontSize: 12, bottom: 15, left: 25}}>VND</Text>
                   </View>
                 </View>
-                <Text style = {{fontWeight: '600', fontSize: 12, marginVertical: 14}}>Chọn nhanh giao dịch (<Text style={{fontSize: 10, color:'red'}}> 1 NMC = 100.000 VND </Text>)</Text>
+                <Text style = {{fontWeight: '600', fontSize: 12, marginVertical: 14}}>Chọn nhanh giao dịch (<Text style={{fontSize: 10, color:'red'}}> 1 VVN = 100.000 VND </Text>)</Text>
                
                 <View style={styles.container}>
                 <RadioButton data={data} />

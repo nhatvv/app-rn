@@ -82,18 +82,19 @@ export default function HomeScreen(props ) {
                    flexDirection:"row",
                    paddingHorizontal:20,
                    width:"100%",
-                   alignItems:"center"
+                   alignItems:"center",
+                   paddingTop: 10,
                }}>
                    <View style={{width:"50%"}}>
                         <Text style={{
                             fontWeight:"bold",
                             fontSize:17,
                             color:"#585a61"
-                        }}>Dành riêng cho <Text style={{color: "#385898"}}>{fullName}</Text></Text>
+                        }}>Gợi ý cho <Text style={{color: "#385898"}}>{fullName}</Text></Text>
                         <View style={{
                             height:3,
                             backgroundColor:"#385898",
-                            width:175,
+                            width:120,
                             marginTop:-1
                         }}>
 
@@ -207,7 +208,7 @@ export default function HomeScreen(props ) {
                                 fontWeight:"bold",
                                 color:"#385898",
                                 paddingLeft:45
-                            }}>Free</Text>
+                            }}>10 VVN</Text>
                         </View>
                         <Text style={{
                             paddingHorizontal:10,
@@ -248,7 +249,7 @@ export default function HomeScreen(props ) {
                                 fontWeight:"bold",
                                 color:"#385898",
                                 paddingLeft:35
-                            }}>Free</Text>
+                            }}>10 VVN</Text>
                         </View>
                         <Text style={{
                             paddingHorizontal:10,
