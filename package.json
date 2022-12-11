@@ -31,6 +31,7 @@
     "react": "18.1.0",
     "react-native": "0.70.5",
     "react-native-basic-form": "^1.1.11",
+    "react-native-calculator": "^0.5.2",
     "react-native-elements": "^3.4.2",
     "react-native-gesture-handler": "^2.8.0",
     "react-native-keyboard-aware-scroll-view": "^0.9.5",

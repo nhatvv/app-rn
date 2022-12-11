@@ -166,6 +166,48 @@ export default function HomeScreen(props ) {
                                 fontWeight:"bold",
                                 color:"#385898",
                                 paddingLeft:35
+                            }}>    Free</Text>
+                        </View>
+                        <Text style={{
+                            paddingHorizontal:10,
+                            fontWeight:"bold",
+                            color:"#385898",
+                            paddingTop:3
+                        }}>
+                            Ứng dụng
+                        </Text>
+                    </TouchableOpacity>
+
+                    
+
+                <TouchableOpacity 
+                        onPress={()=>props.navigation.navigate("CalculatorScreen")}
+                        style={{
+                            height:250,
+                            elevation:2,
+                            backgroundColor:"#FFF",
+                            marginLeft:20,
+                            marginTop:20,
+                            borderRadius:15,
+                            marginBottom:10,
+                            width:160
+                        }}
+                    >
+                        <Image
+                            source={require('../../images/6.png')}
+                        />
+                        <View style={{
+                            flexDirection:"row",
+                            paddingTop:10,
+                            paddingHorizontal:10
+                        }}>
+                            <Text style={{
+                                fontWeight:"bold"
+                            }}>Máy tính</Text>
+                            <Text style={{
+                                fontWeight:"bold",
+                                color:"#385898",
+                                paddingLeft:45
                             }}>Free</Text>
                         </View>
                         <Text style={{
@@ -174,55 +216,13 @@ export default function HomeScreen(props ) {
                             color:"#385898",
                             paddingTop:3
                         }}>
-                            App
-                        </Text>
-                    </TouchableOpacity>
-
-                    
-
-                <TouchableOpacity 
-                        // onPress={()=>navigation.navigate("Detail")}
-                        style={{
-                            height:250,
-                            elevation:2,
-                            backgroundColor:"#FFF",
-                            marginLeft:20,
-                            marginTop:20,
-                            borderRadius:15,
-                            marginBottom:10,
-                            width:160
-                        }}
-                    >
-                        <Image
-                            source={require('../../images/6.png')}
-                        />
-                        <View style={{
-                            flexDirection:"row",
-                            paddingTop:10,
-                            paddingHorizontal:10
-                        }}>
-                            <Text style={{
-                                fontWeight:"bold"
-                            }}>ABC</Text>
-                            <Text style={{
-                                fontWeight:"bold",
-                                color:"#385898",
-                                paddingLeft:45
-                            }}>10 VVN</Text>
-                        </View>
-                        <Text style={{
-                            paddingHorizontal:10,
-                            fontWeight:"bold",
-                            color:"#385898",
-                            paddingTop:3
-                        }}>
-                            App
+                            Ứng dụng
                         </Text>
                         </TouchableOpacity>
                   
 
                     <TouchableOpacity 
-                        // onPress={()=>navigation.navigate("Detail")}
+                        onPress={()=>props.navigation.navigate("QuizScreen")}
                         style={{
                             height:250,
                             elevation:2,
@@ -244,12 +244,12 @@ export default function HomeScreen(props ) {
                         }}>
                             <Text style={{
                                 fontWeight:"bold"
-                            }}>ABC</Text>
+                            }}>Câu đố</Text>
                             <Text style={{
                                 fontWeight:"bold",
                                 color:"#385898",
                                 paddingLeft:35
-                            }}>10 VVN</Text>
+                            }}>     Free</Text>
                         </View>
                         <Text style={{
                             paddingHorizontal:10,
@@ -257,7 +257,7 @@ export default function HomeScreen(props ) {
                             color:"#385898",
                             paddingTop:3
                         }}>
-                            App
+                            Trò chơi
                         </Text>
                     </TouchableOpacity>
 

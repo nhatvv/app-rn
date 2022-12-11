@@ -6,15 +6,14 @@ import { useNavigation } from '@react-navigation/native';
 import {AntDesign } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient'
 
-export default function NoteDetail(props ) {
+export default function ToDoListScreen(props ) {
 
     const [entityText, setEntityText] = useState('')
     const [entities, setEntities] = useState([])
     const [showModal, setShowModal] = useState(false);   
-    const [updateData, setUpdateData] = useState()
+
     const entityRef = firebase.firestore().collection('entities')
     const userID = props.extraData.id
-    
     useEffect(() => {
         entityRef
             .where("authorID", "==", userID)
@@ -67,13 +66,12 @@ export default function NoteDetail(props ) {
         }
     }
 
-    const onUpdateButtonPress = (entityText) => {
+    const onUpdateButtonPress = (item,entityText) => {
         // const dbRef = firebase.firestore().collection('users').doc(this.props.route.params.userkey)
-        console.log("item",updateData);
-        console.log("entityText",entityText);
-        if (entityText && entityText.length > 0 && updateData) {
+        console.log("item",entityText);
+        if (entityText && entityText.length > 0 && item) {
            
-            entityRef.doc(updateData.id).update({
+            entityRef.doc(item.id).update({
                 'text': entityText,
               }).then(() => {
                 setEntityText('')
@@ -87,12 +85,16 @@ export default function NoteDetail(props ) {
         return (
            
             <View style={styles.entityContainer}>
-                  <TouchableOpacity style={styles.entityText}  onPress={() => {setShowModal(!showModal);  setUpdateData(item)
+                  <TouchableOpacity style={styles.entityText}  onPress={() => {    setShowModal(!showModal);
             }}>
-                    <Text >    
+
+                    <Text >
+                
+                        
                             {index}. {item.text} 
+
+            
                     </Text>
-                   
 
             </TouchableOpacity>
                 
@@ -104,27 +106,26 @@ export default function NoteDetail(props ) {
                         size={20}  />
 
                 </TouchableOpacity>
-                <Modal 
+                <Modal
           animationType={'slide'}
           transparent={false}
           visible={showModal}
           onRequestClose={() => {
-            
+            console.log('dong');
           }}>
-           
+
           <View style={styles.modal}>
           <TouchableOpacity onPress={ () => setShowModal(!showModal)}>
 
                 <View style={{ height:40, width:40, marginRight: 350,marginTop: -80}}>
                             <AntDesign size={23} name='left'/>
-                           
                 </View>
             </TouchableOpacity>
-            <Text style={styles.text}>Cập nhật ghi chú</Text>
+            <Text style={styles.text}>Sửa ghi chú</Text>
             <View style={{flexDirection: "row",}}>
             <View style={styles.formContainer}>
                 <TextInput
-                    style={styles.inputModal}
+                    style={styles.input}
                     placeholder='Sửa ghi chú'
                     placeholderTextColor="#aaaaaa"
                     onChangeText={(text) => setEntityText(text)}
@@ -133,12 +134,26 @@ export default function NoteDetail(props ) {
                     autoCapitalize="none"
                 />
                 <TouchableOpacity style={styles.buttonModal} onPress={() => {
-                    setShowModal(!showModal); onUpdateButtonPress(entityText);
+                    setShowModal(!showModal); onUpdateButtonPress(item,entityText);
                 }}>
                     <Text style={styles.buttonTextModal}>Cập nhật</Text>
                 </TouchableOpacity>
             </View>
-          
+            {/* <Button 
+              title="Hủy bỏ"
+              onPress={() => {
+                setShowModal(!showModal);
+              }}
+            />
+            <View style={{width: 20}}></View>
+              
+            <Button 
+              title="Xác nhận giao dịch"
+              onPress={() => {
+                setShowModal(!showModal);
+              }}
+              
+            /> */}
             </View>
           </View>
         </Modal>  
@@ -150,7 +165,6 @@ export default function NoteDetail(props ) {
 
     const goBack = () => {
         props.navigation.goBack();
-        // console.log("props note",props);
     }
 
     return (

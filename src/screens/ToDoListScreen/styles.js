@@ -24,12 +24,10 @@ export default StyleSheet.create({
         height: 48,
         borderRadius: 5,
         overflow: 'hidden',
-        backgroundColor: '#ffff',
+        backgroundColor: 'white',
         paddingLeft: 16,
         flex: 1,
-        marginRight: 5,
-        // borderColor: 'blue',
-        // borderWidth: 1
+        marginRight: 5
     },
     button: {
         height: 47,
@@ -82,22 +80,9 @@ export default StyleSheet.create({
         backgroundColor: '#fff',
         paddingTop: 100,
       },
-    text: {
+      text: {
         color: '#3f2949',
         marginTop: 10,
         paddingBottom:10,
-        borderColor: '#788eec',
-        fontSize: 20,
-    },
-    inputModal: {
-        height: 48,
-        borderRadius: 5,
-        overflow: 'hidden',
-        // backgroundColor: '#ffff',
-        paddingLeft: 16,
-        flex: 1,
-        marginRight: 5,
-        borderColor: 'blue',
-        borderWidth: 1,
-    },
+      },
 })

@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from 'react'
-import { Alert, Image, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { Alert, Image, Text, TextInput, TouchableOpacity, View ,ToastAndroid} from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import styles from './styles';
 import { firebase } from '../../firebase/config'
@@ -32,7 +32,8 @@ export default function LoginScreen({navigation}) {
 
     const onLoginPress = () => {
         if (email === "" || password === "") {
-            setErrorMessage("Không thể để trống email hoặc password!");
+            // setErrorMessage("Không thể để trống email hoặc password!");
+            ToastAndroid.show('Không thể để trống email hoặc password !', ToastAndroid.SHORT);
           } else {
             setIsLoading(true);
          
@@ -47,10 +48,12 @@ export default function LoginScreen({navigation}) {
                      .get()
                      .then(firestoreDocument => {
                          if (!firestoreDocument.exists) {
-                             alert("Người dùng không tồn tại!")
+                            //  alert("Người dùng không tồn tại!")
+                             ToastAndroid.show('Người dùng không tồn tại !', ToastAndroid.SHORT);
                              return;
                           }
                           const user = firestoreDocument.data()
+                          ToastAndroid.show('Đăng nhập thành công !', ToastAndroid.SHORT);
                           navigation.navigate('Navigator',{user})
  
                      })
@@ -61,16 +64,19 @@ export default function LoginScreen({navigation}) {
             })
             .catch(error => {
                 if (error.code === "auth/email-already-in-use") {
-                    setErrorMessage("Tài khoản đã được sử dụng.");
+                    // setErrorMessage("Tài khoản đã được sử dụng.");
+                    ToastAndroid.show('Tài khoản đã được sử dụng !', ToastAndroid.SHORT);
                   } else if (error.code === "auth/invalid-email") {
-                    setErrorMessage("Email không hợp lệ!");
+                    // setErrorMessage("Email không hợp lệ!");
+                    ToastAndroid.show('Email không hợp lệ !', ToastAndroid.SHORT);
                   } else if (
                     error.code === "auth/wrong-password" ||
                     error.code === "auth/user-not-found"
                   ) {
-                    setErrorMessage("Email hoặc mật khẩu không đúng.");
+                    // setErrorMessage("Email hoặc mật khẩu không đúng.");
+                    ToastAndroid.show('Email hoặc mật khẩu không đúng !', ToastAndroid.SHORT);
                   }
-                  Alert.alert("Thông báo", errorMessage);
+                //   Alert.alert("Thông báo", errorMessage);
                   console.log(error.code);
             })
     }
