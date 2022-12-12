@@ -10,6 +10,7 @@ export default function LoginScreen({navigation}) {
     const [password, setPassword] = useState('')
     const [errorMessage, setErrorMessage] = useState("");
     const [isLoading, setIsLoading] = useState(false);
+    const [refreshing, setRefreshing] = useState(false);
 
     useEffect(() => {
         if (errorMessage !== "") {

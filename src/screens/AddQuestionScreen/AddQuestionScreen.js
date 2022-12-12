@@ -13,6 +13,7 @@ import FormInput from '../../components/FormInput';
 import FormButton from '../../components/FormButton';
 import { createQuestion } from '../../utils/database';
 // import {launchImageLibrary} from 'react-native-image-picker';
+import { firebase } from '../../firebase/config';
 // import storage from '@react-native-firebase/storage';
 
 const AddQuestionScreen = ({navigation, route}) => {
@@ -39,6 +40,7 @@ const AddQuestionScreen = ({navigation, route}) => {
       optionThree == '' ||
       optionFour == ''
     ) {
+      ToastAndroid.show('Mời bạn nhập đủ thông tin', ToastAndroid.SHORT);
       return;
     }
 
@@ -48,15 +50,15 @@ const AddQuestionScreen = ({navigation, route}) => {
 
     let imageUrl = '';
 
-    // if (imageUri != '') {
-    //   const reference = storage().ref(
-    //     `/images/questions/${currentQuizId}_${currentQuestionId}`,
-    //   );
-    //   await reference.putFile(imageUri).then(() => {
-    //     console.log('Image Uploaded');
-    //   });
-    //   imageUrl = await reference.getDownloadURL();
-    // }
+    if (imageUri != '') {
+      const reference = storage().ref(
+        `/images/questions/${currentQuizId}_${currentQuestionId}`,
+      );
+      await reference.putFile(imageUri).then(() => {
+        console.log('Image Uploaded');
+      });
+      imageUrl = await reference.getDownloadURL();
+    }
 
 
     await createQuestion(currentQuizId, currentQuestionId, {
@@ -75,18 +77,21 @@ const AddQuestionScreen = ({navigation, route}) => {
     setImageUri('');
   };
 
-//   const selectImage = () => {
-//     launchImageLibrary(
-//       {
-//         mediaType: 'photo',
-//       },
-//       ({assets}) => {
-//         if (assets && assets.length > 0) {
-//           setImageUri(assets[0].uri);
-//         }
-//       },
-//     );
-//   };
+  // const selectImage = () => {
+  //   console.log("111");
+  //   launchImageLibrary(
+  //     {
+  //       mediaType: 'photo',
+  //     },
+  //     ({assets}) => {
+  //       console.log("1112222");
+  //       if (assets && assets.length > 0) {
+  //         console.log("1113333");
+  //         setImageUri(assets[0].uri);
+  //       }
+  //     },
+  //   );
+  // };
 
   return (
     <KeyboardAvoidingView
@@ -113,7 +118,7 @@ const AddQuestionScreen = ({navigation, route}) => {
             value={question}
           />
 
-          {/* Image upload */}
+          {/* Image */}
 
           {/* {imageUri == '' ? (
             <TouchableOpacity
@@ -125,7 +130,7 @@ const AddQuestionScreen = ({navigation, route}) => {
               }}
               onPress={selectImage}>
               <Text style={{opacity: 0.5, color: COLORS.primary}}>
-                + add image
+                + Tải ảnh
               </Text>
             </TouchableOpacity>
           ) : (
@@ -142,7 +147,7 @@ const AddQuestionScreen = ({navigation, route}) => {
             />
           )} */}
 
-          {/* Options */}
+  
           <View style={{marginTop: 30}}>
             <FormInput
               labelText="Lựa chọn chính xác"

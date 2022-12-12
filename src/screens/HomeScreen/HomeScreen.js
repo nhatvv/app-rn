@@ -94,7 +94,7 @@ export default function HomeScreen(props ) {
                         <View style={{
                             height:3,
                             backgroundColor:"#385898",
-                            width:120,
+                            width:135,
                             marginTop:-1
                         }}>
 

@@ -22,7 +22,7 @@ const CreateQuizScreen = ({navigation}) => {
     // Reset
     setTitle('');
     setDescription('');
-    ToastAndroid.show('Quiz Saved', ToastAndroid.SHORT);
+    ToastAndroid.show('Đã lưu', ToastAndroid.SHORT);
   };
 
   return (

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { FlatList, Keyboard, Text, TextInput, TouchableOpacity, View,Modal, Button } from 'react-native'
+import { FlatList, Keyboard, Text, TextInput, TouchableOpacity, View,Modal, Button,ToastAndroid } from 'react-native'
 import styles from './styles';
 import { firebase } from '../../firebase/config'
 import { useNavigation } from '@react-navigation/native';
@@ -11,6 +11,7 @@ export default function NoteDetail(props ) {
     const [entityText, setEntityText] = useState('')
     const [entities, setEntities] = useState([])
     const [showModal, setShowModal] = useState(false);   
+    const [refreshing, setRefreshing] = useState(false);
     const [updateData, setUpdateData] = useState()
     const entityRef = firebase.firestore().collection('entities')
     const userID = props.extraData.id
@@ -36,6 +37,7 @@ export default function NoteDetail(props ) {
     }, [])
 
     const onAddButtonPress = () => {
+        setRefreshing(true);
         if (entityText && entityText.length > 0) {
             const timestamp = firebase.firestore.FieldValue.serverTimestamp();
             const data = {
@@ -46,9 +48,11 @@ export default function NoteDetail(props ) {
             entityRef
                 .add(data)
                 .then(_doc => {
+                    ToastAndroid.show('Thêm thành công !', ToastAndroid.SHORT);
                     setEntityText('')
                     Keyboard.dismiss()
                     // props.onRefresh()
+                    setRefreshing(false);
                 })
                 .catch((error) => {
                     alert(error)
@@ -62,6 +66,7 @@ export default function NoteDetail(props ) {
            
             entityRef.doc(item.id).delete().then(() => {
                 // props.onRefresh()
+                ToastAndroid.show('Xóa thành công !', ToastAndroid.SHORT);
               })
             
         }
@@ -78,6 +83,7 @@ export default function NoteDetail(props ) {
               }).then(() => {
                 setEntityText('')
                 // props.onRefresh()
+                ToastAndroid.show('Cập nhật thành công !', ToastAndroid.SHORT);
               })
             
         }
@@ -191,6 +197,7 @@ export default function NoteDetail(props ) {
                     <FlatList
                         data={entities}
                         renderItem={renderEntity}
+                        refreshing={refreshing}
                         keyExtractor={(item) => item.id}
                         removeClippedSubviews={true}
                     />
