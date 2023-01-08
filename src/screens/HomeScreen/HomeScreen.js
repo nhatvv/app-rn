@@ -149,7 +149,7 @@ export default function HomeScreen(props ) {
                         }}
                     >
                         <Image
-                            source={require('../../images/6.png')}
+                            source={require('../../images/1.png')}
                         />
                         <View style={{
                             flexDirection:"row",
@@ -191,7 +191,7 @@ export default function HomeScreen(props ) {
                         }}
                     >
                         <Image
-                            source={require('../../images/6.png')}
+                            source={require('../../images/2.png')}
                         />
                         <View style={{
                             flexDirection:"row",
@@ -232,7 +232,7 @@ export default function HomeScreen(props ) {
                         }}
                     >
                         <Image
-                            source={require('../../images/6.png')}
+                            source={require('../../images/3.png')}
                         />
                         <View style={{
                             flexDirection:"row",
