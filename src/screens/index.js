@@ -29,3 +29,5 @@ export { default as ForgotPasswordScreen } from './ForgotPasswordScreen/ForgotPa
 export { default as ChangePasswordScreen } from './ChangePasswordScreen/ChangePasswordScreen'
 
 export { default as ChangeEmailScreen } from './ChangeEmailScreen/ChangeEmailScreen'
+
+export { default as StopwatchScreen } from './StopwatchScreen/StopwatchScreen'

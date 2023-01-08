@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { LoginScreen, HomeScreen, RegistrationScreen, MenuScreen, MoneyIntoWallet, NoteDetail, ProfileScreen, ToDoListScreen,CalculatorScreen,QuizScreen, 
-    CreateQuizScreen,AddQuestionScreen,PlayQuizScreen,ForgotPasswordScreen, ChangePasswordScreen,ChangeEmailScreen } from './src/screens'
+    CreateQuizScreen,AddQuestionScreen,PlayQuizScreen,ForgotPasswordScreen, ChangePasswordScreen,ChangeEmailScreen, StopwatchScreen } from './src/screens'
 import {decode, encode} from 'base-64'
 import { firebase } from './src/firebase/config';
 import Navigator from './src/navigations/Navigator';
@@ -81,6 +81,7 @@ export default function App() {
             <Stack.Screen name="ForgotPasswordScreen" component={ForgotPasswordScreen} />
             <Stack.Screen name="ChangePasswordScreen" component={ChangePasswordScreen} />
             <Stack.Screen name="ChangeEmailScreen" component={ChangeEmailScreen} />
+            <Stack.Screen name="StopwatchScreen" component={StopwatchScreen} />
             { user ? (
           
           <Stack.Screen name="ProfileScreen">

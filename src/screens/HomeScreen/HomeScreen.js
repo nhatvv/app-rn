@@ -258,6 +258,46 @@ export default function HomeScreen(props ) {
                         </Text>
                     </TouchableOpacity>
 
+                    <TouchableOpacity 
+                        onPress={()=>props.navigation.navigate("StopwatchScreen")}
+                        style={{
+                            height:250,
+                            elevation:2,
+                            backgroundColor:"#FFF",
+                            marginLeft:20,
+                            marginTop:20,
+                            borderRadius:15,
+                            marginBottom:10,
+                            width:160
+                        }}
+                    >
+                        <Image
+                            source={require('../../images/3.png')}
+                        />
+                        <View style={{
+                            flexDirection:"row",
+                            paddingTop:10,
+                            paddingHorizontal:10
+                        }}>
+                            <Text style={{
+                                fontWeight:"bold"
+                            }}>Bấm giờ</Text>
+                            <Text style={{
+                                fontWeight:"bold",
+                                color:"#385898",
+                                paddingLeft:30
+                            }}>     Free</Text>
+                        </View>
+                        <Text style={{
+                            paddingHorizontal:10,
+                            fontWeight:"bold",
+                            color:"#385898",
+                            paddingTop:3
+                        }}>
+                            Ứng dụng
+                        </Text>
+                    </TouchableOpacity>
+
                 </ScrollView>            
 
         </View>
