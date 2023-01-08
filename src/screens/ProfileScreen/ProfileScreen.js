@@ -4,27 +4,69 @@ import {
   Text,
   View,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
+  TextInput,
+  Button,
+  ToastAndroid,
 } from 'react-native';
 import { firebase } from '../../firebase/config'
 import {AntDesign } from '@expo/vector-icons';
+import { updateUser } from '../../utils/database';
+import { getAuth, updateProfile } from "firebase/auth";
+
 
   export default function ProfileScreen(props) {
+    const id = props.extraData.id
+    const [isEditable, setIsEditable] = React.useState(false);
+    const [fullName, setFullName] = React.useState(props.extraData.fullName);
+    const [age, setAge] = React.useState(props.extraData.age);
+    const [sex, setSex] = React.useState(props.extraData.sex);
+    // const [user, setUser] = React.useState();
+    const entityRef = firebase.firestore().collection('users')
 
-      console.log("props profile",props);
-    //   const fullName = props.route.params.fullName
+    const getUserById = async () => {
+     let user = entityRef.doc(id).get().then((doc) => {
+        user = doc.data()
+        if(user.fullName) {
+          setFullName(user.fullName)
+          setAge(user.age)
+          setSex(user.sex)
+        }
+       
+    }).catch((error) => {
+    });
+    };
+
+    const userUpdate = async () => {
+      entityRef.doc(props.extraData.id).update({
+        'fullName': fullName,
+        'age': age,
+        'sex': sex,
+      }).then((res) => {
+        ToastAndroid.show('Cập nhật thành công !', ToastAndroid.SHORT);
+        getUserById().then((user) => {
+          
+          props.navigation.push('Navigator')
+        })
+        
+        
+
+      }).catch((error) => {
+    });
+    };
+
     //   const age = props.route.params.age
     //   const sex = props.route.params.sex
-
+    const updateState = () => {
+      setIsEditable(!isEditable);
+      if(isEditable){
+        userUpdate()
+      }
+    };
     const goBack = () => {
         props.navigation.goBack();
-        console.log("props note",props);
     }
     
-    const  functionCombined = () => {
-        signOut();
-        props.navigation.navigate('Login')
-    }  
     return (
       <View style={styles.container}>
         <TouchableOpacity onPress={ () => goBack()}>
@@ -34,49 +76,50 @@ import {AntDesign } from '@expo/vector-icons';
             </View>
         </TouchableOpacity>
           <View style={styles.header}>
-          {/* <TouchableOpacity onPress={() => props.navigation.navigate('Navigator',{ props: props})}>
-         
-          <View style={{
-                   flexDirection:"row",
-                   alignItems:"center",
-                   marginTop:50,
-                   width:"100%",
-                   marginLeft: 60,
-               }}>
-                <Image
-                    source={require('../../../assets/Spinner-1s-200pxLoading.png')}
-                    style={{
-                        height:60,
-                        width:60,
-                    }}
-               />
-                   <Text style={{ fontWeight: '900', fontSize: 40, color: '#2e2e2d' }}><Text style={{ color: '#385898' }}>U</Text >tility</Text>
-                   <View style={{width:"50%",alignItems:"flex-end"}}>
-                   </View>
-               </View>
-          </TouchableOpacity> */}
-     
           </View>
           
           <Image style={styles.avatar} source={require("../../../assets/Spinner-1s-200pxLoading.png")}/>
-          <View style={{ alignItems: 'center', marginTop: -10 }}>
-            <Text style={styles.name}>{}</Text>  
-            {/* <Text style={{ alignItems: 'center', marginTop: 10 }}>{} {} </Text>  */}
+          <View style={{ alignItems: 'center', marginTop: 20, }}> 
+            <Button
+              title={
+                isEditable
+                  ? 'Lưu lại'
+                  : 'Chỉnh sửa'
+              }
+              onPress={updateState}
+            />
           </View>
          
           <View style={styles.body}>
             <View style={styles.bodyContent}>
-              <TouchableOpacity style={styles.buttonContainer} >
-                <Text>     Họ tên                :             {props.extraData.fullName}</Text>  
-              </TouchableOpacity>   
-              <TouchableOpacity style={styles.buttonContainer} >
-                <Text>     Tuổi                    :              {props.extraData.age}</Text> 
-              </TouchableOpacity>     
-              <TouchableOpacity style={styles.buttonContainer}>
-                <Text>     Giới tính             :              {props.extraData.sex}</Text> 
-              </TouchableOpacity>      
-              <TouchableOpacity style={styles.buttonContainer}>
-                <Text>     Email                 : {props.extraData.email}</Text> 
+              <TouchableOpacity style={[styles.buttonContainer,{
+                    backgroundColor: isEditable ?
+                    'white' : '#fff',
+                  },]} >
+                <Text>       Họ tên            :         </Text>
+                <TextInput  underlineColorAndroid="transparent" editable={isEditable} value={fullName} onChangeText={fullName => setFullName(fullName)}></TextInput>
+              </TouchableOpacity>  
+              <TouchableOpacity style={[styles.buttonContainer,{
+                    backgroundColor: isEditable ?
+                    'white' : '#fff',
+                  },]} >
+                <Text>       Tuổi                :           </Text>
+                <TextInput  underlineColorAndroid="transparent" editable={isEditable} value={age} onChangeText={age => setAge(age)}></TextInput>
+              </TouchableOpacity> 
+              <TouchableOpacity style={[styles.buttonContainer,{
+                    backgroundColor: isEditable ?
+                    'white' : '#fff',
+                  },]} >
+                <Text>       Giới tính         :           </Text>
+                <TextInput  underlineColorAndroid="transparent" editable={isEditable} value={sex} onChangeText={sex => setSex(sex)}></TextInput>
+              </TouchableOpacity>    
+           
+              <TouchableOpacity style={[styles.buttonContainer,{
+                    backgroundColor: isEditable ?
+                    'white' : '#fff',
+                  },]} >
+                <Text>       Email             :   </Text>
+                <TextInput  underlineColorAndroid="transparent" editable={false} value={props.extraData.email} ></TextInput>
               </TouchableOpacity>
               {/* <TouchableOpacity style={styles.buttonLogout} >
                 <Text> {props.extraData.age}</Text> 
@@ -111,6 +154,7 @@ const styles = StyleSheet.create({
  
   body:{
     marginTop:0,
+    flex:1,
   },
   bodyContent: {
     flex: 1,

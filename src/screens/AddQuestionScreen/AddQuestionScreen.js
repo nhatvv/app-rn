@@ -23,7 +23,6 @@ const AddQuestionScreen = ({navigation, route}) => {
   const [currentQuizTitle, setCurrentQuizTitle] = useState(
     route.params.currentQuizTitle,
   );
-  console.log('currentQuizTitle',currentQuizTitle);
   const [question, setQuestion] = useState('');
   const [imageUri, setImageUri] = useState('');
 
@@ -55,7 +54,6 @@ const AddQuestionScreen = ({navigation, route}) => {
         `/images/questions/${currentQuizId}_${currentQuestionId}`,
       );
       await reference.putFile(imageUri).then(() => {
-        console.log('Image Uploaded');
       });
       imageUrl = await reference.getDownloadURL();
     }
@@ -78,16 +76,11 @@ const AddQuestionScreen = ({navigation, route}) => {
   };
 
   // const selectImage = () => {
-  //   console.log("111");
   //   launchImageLibrary(
   //     {
   //       mediaType: 'photo',
   //     },
-  //     ({assets}) => {
-  //       console.log("1112222");
-  //       if (assets && assets.length > 0) {
-  //         console.log("1113333");
-  //         setImageUri(assets[0].uri);
+  //     ({assets}) => {  //       if (assets && assets.length > 0) {  //         setImageUri(assets[0].uri);
   //       }
   //     },
   //   );

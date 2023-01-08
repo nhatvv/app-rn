@@ -7,7 +7,7 @@ import {AntDesign } from '@expo/vector-icons';
 
 const Tab = createBottomTabNavigator();
 const BottomTabNavigator = (props) => {
-    console.log("props tab",props);
+    
     return(
         <Tab.Navigator
             screenOptions={{ headerShown: false }}
@@ -57,7 +57,6 @@ const Navigator = (props) => {
     const fullName = props.extraData.fullName
     const sex = props.extraData.sex
     const age = props.extraData.age
-    console.log("props navi",props);
     return(
         <Stack.Navigator screenOptions={screenOptionStyle}>
            {/* <Stack.Screen name="Home">

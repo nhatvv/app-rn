@@ -1,5 +1,4 @@
 import { firebase } from '../firebase/config'
-// import { firebase } from '../../firebase/config'
 
 export const createQuiz = (currentQuizId, title, description) => {
   return firebase.firestore().collection('Quizzes').doc(currentQuizId).set({

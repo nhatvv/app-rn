@@ -58,19 +58,6 @@ const CreateQuizScreen = ({navigation}) => {
 
       <FormButton labelText="Lưu lại" handleOnPress={handleQuizSave} />
 
-      {/* Temporary button - navigate without saving quiz*/}
-      {/* <FormButton
-        labelText="Navigate to AddQuestionScreen"
-        style={{
-          marginVertical: 20,
-        }}
-        handleOnPress={() => {
-          navigation.navigate('AddQuestionScreen', {
-            currentQuizId: '103404',
-            currentQuizTitle: 'Demo quiz',
-          });
-        }}
-      /> */}
     </SafeAreaView>
   );
 };

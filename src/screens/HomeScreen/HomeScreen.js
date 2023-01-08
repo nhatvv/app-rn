@@ -6,11 +6,8 @@ import {AntDesign } from '@expo/vector-icons';
 import { firebase } from '../../firebase/config'
 
 export default function HomeScreen(props ) {
-
-
-     const fullName = props?.route.params.fullName
-
-    console.log("props Home",props);
+    
+    const fullName = props?.route.params.fullName
     return (
         <View style={{
             backgroundColor:"#ffff",

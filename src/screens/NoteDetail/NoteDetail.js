@@ -31,7 +31,6 @@ export default function NoteDetail(props ) {
                     setEntities(newEntities)
                 },
                 error => {
-                    console.log(error)
                 }
             )
     }, [])
@@ -65,7 +64,6 @@ export default function NoteDetail(props ) {
         if (item) {
            
             entityRef.doc(item.id).delete().then(() => {
-                // props.onRefresh()
                 ToastAndroid.show('Xóa thành công !', ToastAndroid.SHORT);
               })
             
@@ -73,9 +71,6 @@ export default function NoteDetail(props ) {
     }
 
     const onUpdateButtonPress = (entityText) => {
-        // const dbRef = firebase.firestore().collection('users').doc(this.props.route.params.userkey)
-        console.log("item",updateData);
-        console.log("entityText",entityText);
         if (entityText && entityText.length > 0 && updateData) {
            
             entityRef.doc(updateData.id).update({
@@ -156,7 +151,6 @@ export default function NoteDetail(props ) {
 
     const goBack = () => {
         props.navigation.goBack();
-        // console.log("props note",props);
     }
 
     return (
@@ -206,9 +200,7 @@ export default function NoteDetail(props ) {
                 
             )}
            </LinearGradient>
-           
         </View>
-        
     )
 }
 

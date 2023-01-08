@@ -29,7 +29,6 @@ export default function ToDoListScreen(props ) {
                     setEntities(newEntities)
                 },
                 error => {
-                    console.log(error)
                 }
             )
     }, [])
@@ -68,7 +67,6 @@ export default function ToDoListScreen(props ) {
 
     const onUpdateButtonPress = (item,entityText) => {
         // const dbRef = firebase.firestore().collection('users').doc(this.props.route.params.userkey)
-        console.log("item",entityText);
         if (entityText && entityText.length > 0 && item) {
            
             entityRef.doc(item.id).update({
@@ -111,7 +109,6 @@ export default function ToDoListScreen(props ) {
           transparent={false}
           visible={showModal}
           onRequestClose={() => {
-            console.log('dong');
           }}>
 
           <View style={styles.modal}>

@@ -1,6 +1,6 @@
 import { useNavigationContainerRef } from "@react-navigation/native";
 import React, {useState,useEffect} from "react";
-import { Alert,Modal,View, Text, TextInput, StyleSheet, Button, Image, TouchableOpacity,SafeAreaView } from "react-native";
+import { Alert,Modal,View, Text, TextInput, StyleSheet, Button, Image, TouchableOpacity,ToastAndroid } from "react-native";
 import AntIcon from "react-native-vector-icons/AntDesign";
 import RadioButton from "../../components/RadioButton";
 
@@ -23,7 +23,8 @@ export default function MoneyIntoWallet({navigation}) {
         }
       }, [errorMessage]);
       const onClickApprove = () => {
-          Alert.alert("Thông báo", "Giao dịch thành công!");
+          // Alert.alert("Thông báo", "Giao dịch thành công!");
+          ToastAndroid.show('Chức năng đang bảo trì', ToastAndroid.SHORT)
       }
     return (
       <View style={{backgroundColor:'#FFFF'}}>
@@ -69,12 +70,14 @@ export default function MoneyIntoWallet({navigation}) {
           transparent={false}
           visible={showModal}
           onRequestClose={() => {
-            console.log('dong');
           }}>
           {/*All views of Modal*/}
           {/*Animation can be slide, slide, none*/}
           <View style={styles.modal}>
-            <Text style={styles.text}>Phương thức thanh toán</Text>
+            <Text style={styles.text}>Phương thức thanh toán
+            </Text>
+            <Text style={styles.text}>Chuyển khoản
+            </Text>
             <View style={{flexDirection: "row",}}>
             
             <Button 

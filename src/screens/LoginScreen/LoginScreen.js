@@ -29,7 +29,9 @@ export default function LoginScreen({navigation}) {
     //       });
     //     }
     // });
-
+    const goToForgotPassword = () => {
+        navigation.navigate('ForgotPasswordScreen',)
+    }
 
     const onLoginPress = () => {
         if (email === "" || password === "") {
@@ -59,8 +61,6 @@ export default function LoginScreen({navigation}) {
  
                      })
                     .catch(error => {
-                        console.log(error);
-                        // alert("Thông báo", error);
                     });
             })
             .catch(error => {
@@ -77,8 +77,6 @@ export default function LoginScreen({navigation}) {
                     // setErrorMessage("Email hoặc mật khẩu không đúng.");
                     ToastAndroid.show('Email hoặc mật khẩu không đúng !', ToastAndroid.SHORT);
                   }
-                //   Alert.alert("Thông báo", errorMessage);
-                  console.log(error.code);
             })
     }
 };
@@ -117,6 +115,8 @@ export default function LoginScreen({navigation}) {
                 </TouchableOpacity>
                 <View style={styles.footerView}>
                     <Text style={styles.footerText}>Bạn chưa có tài khoản? <Text onPress={onFooterLinkPress} style={styles.footerLink}>Đăng ký</Text></Text>
+                   
+                    <Text onPress={goToForgotPassword} style={styles.footerLink}>Quên mật khẩu?</Text>
                 </View>
             </KeyboardAwareScrollView>
         </View>

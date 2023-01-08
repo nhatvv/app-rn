@@ -22,4 +22,6 @@ export { default as CreateQuizScreen } from './CreateQuizScreen/CreateQuizScreen
 
 export { default as AddQuestionScreen } from './AddQuestionScreen/AddQuestionScreen'
 
-export { default as PlayQuizScreen } from './PlayQuizScreen/PlayQuizScreen'
+export { default as PlayQuizScreen } from './PlayQuizScreen/PlayQuizScreen' 
+
+export { default as ForgotPasswordScreen } from './ForgotPasswordScreen/ForgotPasswordScreen'

@@ -4,25 +4,21 @@ import {
   Text,
   View,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
+  ToastAndroid
 } from 'react-native';
 import { firebase } from '../../firebase/config'
 
   export default function MenuScreen(props) {
-
-      console.log("props menu",props);
-      const fullName = props.route.params.fullName
-      const age = props.route.params.age
-      const sex = props.route.params.sex
-
+    const fullName = props.route.params.fullName
+    const age = props.route.params.age
+    const sex = props.route.params.sex
     const signOut = () => {
       firebase.auth().signOut().then(function() {
-          console.log('Signed Out');
         }, function(error) {
-          console.error('Sign Out Error', error);
         });
         
-  };
+    };
     
     const  functionCombined = () => {
         signOut();
@@ -31,7 +27,7 @@ import { firebase } from '../../firebase/config'
     return (
       <View style={styles.container}>
           <View style={styles.header}>
-          <TouchableOpacity onPress={() => props.navigation.navigate('Home')}>
+          <TouchableOpacity onPress={() => props.navigation.push('Home')}>
          
           <View style={{
                    flexDirection:"row",
@@ -55,7 +51,7 @@ import { firebase } from '../../firebase/config'
      
           </View>
           
-          <Image style={styles.avatar} source={require("../../../assets/Spinner-1s-200pxLoading.png")}/>
+          <Image style={styles.avatar} source={require("../../../assets/Profile.png")}/>
           <View style={{ alignItems: 'center', marginTop: -10 }}>
             <Text style={styles.name}>{fullName}</Text>  
             <Text style={{ alignItems: 'center', marginTop: 10 }}>{sex}, {age} tuổi</Text> 
@@ -69,10 +65,10 @@ import { firebase } from '../../firebase/config'
               <TouchableOpacity style={styles.buttonContainer} onPress={() => props.navigation.navigate('MoneyIntoWallet')}>
                 <Text>Ví tiền</Text> 
               </TouchableOpacity>     
-              <TouchableOpacity style={styles.buttonContainer}>
+              <TouchableOpacity style={styles.buttonContainer} onPress={() => props.navigation.navigate('ForgotPasswordScreen')}>
                 <Text>Bảo mật</Text> 
               </TouchableOpacity>      
-              <TouchableOpacity style={styles.buttonContainer}>
+              <TouchableOpacity style={styles.buttonContainer} onPress={() => ToastAndroid.show('Chức năng đang bảo trì!', ToastAndroid.SHORT)}>
                 <Text>Cài đặt</Text> 
               </TouchableOpacity>
               <TouchableOpacity style={styles.buttonLogout} onPress={() => functionCombined()}>
