@@ -66,10 +66,13 @@ import { firebase } from '../../firebase/config'
                 <Text>Ví tiền</Text> 
               </TouchableOpacity>     
               <TouchableOpacity style={styles.buttonContainer} onPress={() => props.navigation.navigate('ForgotPasswordScreen')}>
-                <Text>Bảo mật</Text> 
+                <Text>Đặt lại mật khẩu</Text> 
               </TouchableOpacity>      
-              <TouchableOpacity style={styles.buttonContainer} onPress={() => ToastAndroid.show('Chức năng đang bảo trì!', ToastAndroid.SHORT)}>
-                <Text>Cài đặt</Text> 
+              <TouchableOpacity style={styles.buttonContainer} onPress={() => props.navigation.navigate('ChangePasswordScreen')}>
+                <Text>Đổi mật khẩu</Text> 
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.buttonContainer} onPress={() => props.navigation.navigate('ChangeEmailScreen')}>
+                <Text>Đổi email đăng nhập</Text> 
               </TouchableOpacity>
               <TouchableOpacity style={styles.buttonLogout} onPress={() => functionCombined()}>
                 <Text>Đăng xuất</Text> 
@@ -103,7 +106,7 @@ const styles = StyleSheet.create({
   },
  
   body:{
-    marginTop:0,
+    marginTop:-20,
   },
   bodyContent: {
     flex: 1,

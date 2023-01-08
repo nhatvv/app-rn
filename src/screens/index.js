@@ -25,3 +25,7 @@ export { default as AddQuestionScreen } from './AddQuestionScreen/AddQuestionScr
 export { default as PlayQuizScreen } from './PlayQuizScreen/PlayQuizScreen' 
 
 export { default as ForgotPasswordScreen } from './ForgotPasswordScreen/ForgotPasswordScreen'
+
+export { default as ChangePasswordScreen } from './ChangePasswordScreen/ChangePasswordScreen'
+
+export { default as ChangeEmailScreen } from './ChangeEmailScreen/ChangeEmailScreen'
