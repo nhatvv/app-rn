@@ -272,7 +272,7 @@ export default function HomeScreen(props ) {
                         }}
                     >
                         <Image
-                            source={require('../../images/3.png')}
+                            source={require('../../images/4.png')}
                         />
                         <View style={{
                             flexDirection:"row",
@@ -297,7 +297,45 @@ export default function HomeScreen(props ) {
                             Ứng dụng
                         </Text>
                     </TouchableOpacity>
-
+                    <TouchableOpacity 
+                        onPress={()=>props.navigation.navigate("ChatScreen")}
+                        style={{
+                            height:250,
+                            elevation:2,
+                            backgroundColor:"#FFF",
+                            marginLeft:20,
+                            marginTop:20,
+                            borderRadius:15,
+                            marginBottom:10,
+                            width:160
+                        }}
+                    >
+                        <Image
+                            source={require('../../images/5.png')}
+                        />
+                        <View style={{
+                            flexDirection:"row",
+                            paddingTop:10,
+                            paddingHorizontal:10
+                        }}>
+                            <Text style={{
+                                fontWeight:"bold"
+                            }}>Trò truyện</Text>
+                            <Text style={{
+                                fontWeight:"bold",
+                                color:"#385898",
+                                paddingLeft:35
+                            }}>    Free</Text>
+                        </View>
+                        <Text style={{
+                            paddingHorizontal:10,
+                            fontWeight:"bold",
+                            color:"#385898",
+                            paddingTop:3
+                        }}>
+                            Ứng dụng
+                        </Text>
+                    </TouchableOpacity>
                 </ScrollView>            
 
         </View>

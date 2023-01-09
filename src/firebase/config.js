@@ -2,6 +2,7 @@
 import * as firebase from 'firebase';
 import '@firebase/auth';
 import '@firebase/firestore';
+// import { getFirestore } from 'firebase/firestore';
 // import '@firebase/storage';
 
 const firebaseConfig = {
@@ -18,3 +19,4 @@ if (!firebase.apps.length) {
 }
 
 export { firebase };
+// export const database = getFirestore();

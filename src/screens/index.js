@@ -31,3 +31,5 @@ export { default as ChangePasswordScreen } from './ChangePasswordScreen/ChangePa
 export { default as ChangeEmailScreen } from './ChangeEmailScreen/ChangeEmailScreen'
 
 export { default as StopwatchScreen } from './StopwatchScreen/StopwatchScreen'
+
+export { default as ChatScreen } from './ChatScreen/ChatScreen'
