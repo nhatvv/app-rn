@@ -64,10 +64,13 @@ import { firebase } from '../../firebase/config'
               </TouchableOpacity>   
               <TouchableOpacity style={styles.buttonContainer} onPress={() => props.navigation.navigate('MoneyIntoWallet')}>
                 <Text>Ví tiền</Text> 
-              </TouchableOpacity>     
-              <TouchableOpacity style={styles.buttonContainer} onPress={() => props.navigation.navigate('ForgotPasswordScreen')}>
+              </TouchableOpacity>    
+              <TouchableOpacity style={styles.buttonContainer} onPress={() => props.navigation.navigate('UpgradeScreen')}>
+                <Text>Nâng cấp</Text> 
+              </TouchableOpacity>   
+              {/* <TouchableOpacity style={styles.buttonContainer} onPress={() => props.navigation.navigate('ForgotPasswordScreen')}>
                 <Text>Đặt lại mật khẩu</Text> 
-              </TouchableOpacity>      
+              </TouchableOpacity>       */}
               <TouchableOpacity style={styles.buttonContainer} onPress={() => props.navigation.navigate('ChangePasswordScreen')}>
                 <Text>Đổi mật khẩu</Text> 
               </TouchableOpacity>

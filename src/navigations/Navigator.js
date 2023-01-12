@@ -2,7 +2,7 @@ import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { createStackNavigator } from '@react-navigation/stack'
 import {Image} from 'react-native'
-import { HomeScreen, MenuScreen } from '../screens';
+import { HomeScreen, MenuScreen, LimitedScreen } from '../screens';
 import {AntDesign } from '@expo/vector-icons';
 
 const Tab = createBottomTabNavigator();
@@ -19,6 +19,18 @@ const BottomTabNavigator = (props) => {
                     tabBarLabel:"Home",
                     tabBarIcon:({color, size}) => (
                         <AntDesign  name="home"
+                        color={color}
+                        size={size} />
+                    )
+                }}
+            />
+            <Tab.Screen
+                name="Store"
+                component={LimitedScreen} 
+                options={{
+                    tabBarLabel:"Cửa hàng",
+                    tabBarIcon:({color, size}) => (
+                        <AntDesign  name="CodeSandbox"
                         color={color}
                         size={size} />
                     )

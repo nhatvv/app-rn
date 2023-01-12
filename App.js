@@ -3,7 +3,8 @@ import React, { useEffect, useState } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { LoginScreen, HomeScreen, RegistrationScreen, MenuScreen, MoneyIntoWallet, NoteDetail, ProfileScreen, ToDoListScreen,CalculatorScreen,QuizScreen, 
-    CreateQuizScreen,AddQuestionScreen,PlayQuizScreen,ForgotPasswordScreen, ChangePasswordScreen,ChangeEmailScreen, StopwatchScreen,ChatScreen } from './src/screens'
+    CreateQuizScreen,AddQuestionScreen,PlayQuizScreen,ForgotPasswordScreen, ChangePasswordScreen,ChangeEmailScreen, StopwatchScreen,ChatScreen, 
+    LimitedScreen,IntroSliderScreen, UpgradeScreen } from './src/screens'
 import {decode, encode} from 'base-64'
 import { firebase } from './src/firebase/config';
 import Navigator from './src/navigations/Navigator';
@@ -69,11 +70,9 @@ export default function App() {
               <>   
               </>
             )}
+            <Stack.Screen name="IntroSliderScreen" component={IntroSliderScreen} />
             <Stack.Screen name="Login" component={LoginScreen} />
             <Stack.Screen name="Registration" component={RegistrationScreen} />
-            {/* <Stack.Screen name="Navigator" component={Navigator} /> */}
-            
-            {/* <Stack.Screen name="Home" component={HomeScreen} /> */}
             <Stack.Screen name="MoneyIntoWallet" component={MoneyIntoWallet} />
             <Stack.Screen name="CalculatorScreen" component={CalculatorScreen} />
             <Stack.Screen name="AddQuestionScreen" component={AddQuestionScreen} />
@@ -82,6 +81,8 @@ export default function App() {
             <Stack.Screen name="ChangePasswordScreen" component={ChangePasswordScreen} />
             <Stack.Screen name="ChangeEmailScreen" component={ChangeEmailScreen} />
             <Stack.Screen name="StopwatchScreen" component={StopwatchScreen} />
+            <Stack.Screen name="LimitedScreen" component={LimitedScreen} />
+            <Stack.Screen name="UpgradeScreen" component={UpgradeScreen} />
             {/* <Stack.Screen name="ChatScreen" component={ChatScreen} /> */}
             
             { user ? (

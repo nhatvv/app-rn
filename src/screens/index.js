@@ -33,3 +33,9 @@ export { default as ChangeEmailScreen } from './ChangeEmailScreen/ChangeEmailScr
 export { default as StopwatchScreen } from './StopwatchScreen/StopwatchScreen'
 
 export { default as ChatScreen } from './ChatScreen/ChatScreen'
+
+export { default as LimitedScreen } from './LimitedScreen/LimitedScreen'
+
+export { default as IntroSliderScreen } from './IntroSliderScreen/IntroSliderScreen'
+
+export { default as UpgradeScreen } from './UpgradeScreen/UpgradeScreen'

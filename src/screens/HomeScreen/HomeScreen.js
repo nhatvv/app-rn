@@ -87,11 +87,11 @@ export default function HomeScreen(props ) {
                             fontWeight:"bold",
                             fontSize:17,
                             color:"#585a61"
-                        }}>Gợi ý cho <Text style={{color: "#385898"}}>{fullName}</Text></Text>
+                        }}>Dành cho <Text style={{color: "#385898"}}>{fullName}</Text></Text>
                         <View style={{
                             height:3,
                             backgroundColor:"#385898",
-                            width:135,
+                            width:132,
                             marginTop:-1
                         }}>
 
@@ -135,6 +135,7 @@ export default function HomeScreen(props ) {
                             top:0
                         }}
                     />
+
                     <TouchableOpacity 
                         onPress={()=>props.navigation.navigate("NoteDetail")}
                         style={{
