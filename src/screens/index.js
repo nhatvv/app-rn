@@ -39,3 +39,5 @@ export { default as LimitedScreen } from './LimitedScreen/LimitedScreen'
 export { default as IntroSliderScreen } from './IntroSliderScreen/IntroSliderScreen'
 
 export { default as UpgradeScreen } from './UpgradeScreen/UpgradeScreen'
+
+export { default as MultimediaScreen } from './MultimediaScreen/MultimediaScreen'

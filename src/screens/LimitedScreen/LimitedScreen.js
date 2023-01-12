@@ -6,71 +6,67 @@
     const products = [
       {
         id: 1,
-        name: 'Đầu tư',
-        price: '1 VVN',
+        name: 'Bộ ảnh tết 1',
+        price: 'Tết',
         images:[ 
-          '',
-          '',
-          '',
-          '',
-          '',
-          '',
+          'https://png.pngtree.com/png-clipart/20190628/original/pngtree-new-years-cute-god-of-wealth-png-image_4031542.jpg',
+          'https://png.pngtree.com/png-clipart/20190617/original/pngtree-god-of-wealth-god-of-wealth-god-of-wealth-new-year-png-image_3825867.jpg',
+          'https://png.pngtree.com/png-clipart/20190618/original/pngtree-new-spring-god-of-wealth-new-year-god-of-wealth-png-image_3906642.jpg',
+          'https://png.pngtree.com/png-clipart/20190628/original/pngtree-new-years-cute-god-of-wealth-png-image_4031542.jpg',
+          'https://png.pngtree.com/png-clipart/20190617/original/pngtree-god-of-wealth-god-of-wealth-god-of-wealth-new-year-png-image_3825867.jpg',
+          'https://png.pngtree.com/png-clipart/20190618/original/pngtree-new-spring-god-of-wealth-new-year-god-of-wealth-png-image_3906642.jpg',
         ]
       },
       {
         id: 2,
-        name: 'Tích lũy',
-        price: '1 VVN',
+        name: 'Bộ ảnh tết 2',
+        price: 'Tết',
         images:[ 
-          '',
-          '',
-          '',
-          '',
-          '',
-          '',
-          '',
+          'https://png.pngtree.com/png-clipart/20190619/original/pngtree-new-year-2019-god-of-wealth-new-year-png-image_3979563.jpg',
+          'https://png.pngtree.com/png-clipart/20221015/original/pngtree-new-year-the-god-of-wealth-the-god-of-wealth-the-png-image_8694825.png',
+          'https://png.pngtree.com/png-clipart/20190619/original/pngtree-new-year-2019-god-of-wealth-new-year-png-image_3979594.jpg',
+          'https://png.pngtree.com/png-clipart/20190619/original/pngtree-new-year-2019-god-of-wealth-new-year-png-image_3979563.jpg',
+          'https://png.pngtree.com/png-clipart/20221015/original/pngtree-new-year-the-god-of-wealth-the-god-of-wealth-the-png-image_8694825.png',
+          'https://png.pngtree.com/png-clipart/20190619/original/pngtree-new-year-2019-god-of-wealth-new-year-png-image_3979594.jpg',
         ]
       },
       {
         id: 3,
-        name: 'Bất động sản',
-        price: '1 VVN',
+        name: 'Bộ ảnh tết 3',
+        price: 'Tết',
         images:[ 
-          '',
-          '',
-          '',
-          '',
-          '',
-          '',
-          '',
+          'https://png.pngtree.com/png-clipart/20220303/original/pngtree-lovely-god-of-wealth-sends-wealth-in-the-new-year-png-image_7383014.png',
+          'https://png.pngtree.com/png-clipart/20211219/original/pngtree-new-year-s-god-of-wealth-png-image_6970991.png',
+          'https://png.pngtree.com/png-clipart/20211219/original/pngtree-happy-new-year-god-of-wealth-door-god-png-image_6971001.png',
+          'https://png.pngtree.com/png-clipart/20220303/original/pngtree-lovely-god-of-wealth-sends-wealth-in-the-new-year-png-image_7383014.png',
+          'https://png.pngtree.com/png-clipart/20211219/original/pngtree-new-year-s-god-of-wealth-png-image_6970991.png',
+          'https://png.pngtree.com/png-clipart/20211219/original/pngtree-happy-new-year-god-of-wealth-door-god-png-image_6971001.png',
         ]
       },
       {
         id: 4,
-        name: 'Đồ cổ',
-        price: '1 VVN',
+        name: 'Bộ ảnh tết 4',
+        price: 'Tết',
         images:[ 
-          '',
-          '',
-          '',
-          '',
-          '',
-          '',
-          '',
+          'https://png.pngtree.com/png-clipart/20190628/original/pngtree-new-years-cute-god-of-wealth-png-image_4031542.jpg',
+          'https://png.pngtree.com/png-clipart/20190617/original/pngtree-god-of-wealth-god-of-wealth-god-of-wealth-new-year-png-image_3825867.jpg',
+          'https://png.pngtree.com/png-clipart/20190618/original/pngtree-new-spring-god-of-wealth-new-year-god-of-wealth-png-image_3906642.jpg',
+          'https://png.pngtree.com/png-clipart/20190628/original/pngtree-new-years-cute-god-of-wealth-png-image_4031542.jpg',
+          'https://png.pngtree.com/png-clipart/20190617/original/pngtree-god-of-wealth-god-of-wealth-god-of-wealth-new-year-png-image_3825867.jpg',
+          'https://png.pngtree.com/png-clipart/20190618/original/pngtree-new-spring-god-of-wealth-new-year-god-of-wealth-png-image_3906642.jpg',
         ]
       },
       {
         id: 5,
-        name: 'Giải trí',
-        price: '1 VVN',
+        name: 'Bộ ảnh tết 5',
+        price: 'Tết',
         images:[ 
-          '',
-          '',
-          '',
-          '',
-          '',
-          '',
-          '',
+          'https://png.pngtree.com/png-clipart/20190619/original/pngtree-new-year-2019-god-of-wealth-new-year-png-image_3979563.jpg',
+          'https://png.pngtree.com/png-clipart/20221015/original/pngtree-new-year-the-god-of-wealth-the-god-of-wealth-the-png-image_8694825.png',
+          'https://png.pngtree.com/png-clipart/20190619/original/pngtree-new-year-2019-god-of-wealth-new-year-png-image_3979594.jpg',
+          'https://png.pngtree.com/png-clipart/20190619/original/pngtree-new-year-2019-god-of-wealth-new-year-png-image_3979563.jpg',
+          'https://png.pngtree.com/png-clipart/20221015/original/pngtree-new-year-the-god-of-wealth-the-god-of-wealth-the-png-image_8694825.png',
+          'https://png.pngtree.com/png-clipart/20190619/original/pngtree-new-year-2019-god-of-wealth-new-year-png-image_3979594.jpg',
         ]
       },
     ]
@@ -87,8 +83,8 @@
               {product.images.map((image, index) => (
                 <TouchableOpacity onPress={() => {}} key={`${product.id}_${index}`}>
                   <Image style={styles.productImage} 
-                  // source={{ uri: image }} 
-                  source={require('../../../assets/Spinner-1s-200px.png')}
+                  source={{ uri: image }} 
+                  // source={require('../../../assets/Spinner-1s-200px.png')}
                   />
                 </TouchableOpacity>
               ))}
@@ -98,7 +94,7 @@
             </View>
             <View style={styles.cardActions}>
               <TouchableOpacity style={styles.button} onPress={() => {}}>
-                <Text style={styles.buttonText}> Mua </Text>
+                <Text style={styles.buttonText}> Tải xuống </Text>
               </TouchableOpacity>
               <TouchableOpacity style={styles.button} onPress={() => {}}>
                 <Text style={styles.buttonText}> Chi tiết </Text>
@@ -136,7 +132,7 @@
       margin: 10,
     },
     productName: {
-      fontSize: 20,
+      fontSize: 18,
       fontWeight: 'bold',
     },
     productPrice: {

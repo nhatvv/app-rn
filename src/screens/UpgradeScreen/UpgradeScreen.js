@@ -6,7 +6,7 @@ export default UpgradeScreen = () => {
     <ScrollView>
       <View style={styles.container}>
       <View style={styles.pricingOption}>
-          <Text style={styles.pricingOptionTitle}>Limit(1 day left)</Text>
+          <Text style={styles.pricingOptionTitle}>Limited(1 day left)</Text>
           <Text style={styles.pricingOptionPrice}>1 VVN/Tháng</Text>
           <Text style={styles.pricingOptionDescription}>
             Nâng cấp dung lượng của tài khoản

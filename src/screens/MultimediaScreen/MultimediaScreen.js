@@ -22,7 +22,7 @@ import { render } from 'react-dom';
 //   import colors from '../colors';
 
 
-  export default function ChatScreen(props) {
+  export default function MultimediaScreen(props) {
 
     const [messages, setMessages] = useState([]);
     const navigation = useNavigation();
@@ -101,7 +101,7 @@ import { render } from 'react-dom';
           }}
           renderUsernameOnMessage={true}
           user={{
-            _id: userAuth?.uid,
+            _id: userAuth?.email,
             name: userAuth?.email,
             avatar: require("../../../assets/Profile.png"),
           }}

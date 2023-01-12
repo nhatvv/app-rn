@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { LoginScreen, HomeScreen, RegistrationScreen, MenuScreen, MoneyIntoWallet, NoteDetail, ProfileScreen, ToDoListScreen,CalculatorScreen,QuizScreen, 
     CreateQuizScreen,AddQuestionScreen,PlayQuizScreen,ForgotPasswordScreen, ChangePasswordScreen,ChangeEmailScreen, StopwatchScreen,ChatScreen, 
-    LimitedScreen,IntroSliderScreen, UpgradeScreen } from './src/screens'
+    LimitedScreen,IntroSliderScreen, UpgradeScreen, MultimediaScreen } from './src/screens'
 import {decode, encode} from 'base-64'
 import { firebase } from './src/firebase/config';
 import Navigator from './src/navigations/Navigator';
@@ -83,6 +83,7 @@ export default function App() {
             <Stack.Screen name="StopwatchScreen" component={StopwatchScreen} />
             <Stack.Screen name="LimitedScreen" component={LimitedScreen} />
             <Stack.Screen name="UpgradeScreen" component={UpgradeScreen} />
+            <Stack.Screen name="MultimediaScreen" component={MultimediaScreen} />
             {/* <Stack.Screen name="ChatScreen" component={ChatScreen} /> */}
             
             { user ? (

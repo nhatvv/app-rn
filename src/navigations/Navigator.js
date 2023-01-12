@@ -28,7 +28,7 @@ const BottomTabNavigator = (props) => {
                 name="Store"
                 component={LimitedScreen} 
                 options={{
-                    tabBarLabel:"Cửa hàng",
+                    tabBarLabel:"Sự kiện",
                     tabBarIcon:({color, size}) => (
                         <AntDesign  name="CodeSandbox"
                         color={color}
